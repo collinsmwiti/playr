@@ -61,7 +61,7 @@ public class App{
    String trackLink = request.queryParams("trackLink");
    int securityId = request.queryParams("securityId");
    String host = request.queryParams("host");
-   Date dateCreated = request.queryParams("dateCreated");
+   Timestamp dateCreated = request.queryParams("dateCreated");
    Playlist newPlaylist = new Playlist(userId, userName, trackId, typeName, trackName, thumbNail, trackLink, securityId, host, dateCreated);
    newPlaylist.save();
    model.put("template", "templates/playlist-success.vtl");
