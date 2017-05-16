@@ -14,9 +14,11 @@ public class DatabaseRule extends ExternalResource{
       String deletePlaylistQuery = "DELETE FROM playlists *;";
       String deleteUsersQuery = "DELETE FROM users *;";
       String deleteSongsQuery = "DELETE FROM songs *;";
+      String deleteTypesQuery = "DELETE FROM types *;";
       con.createQuery(deletePlaylistQuery).executeUpdate();
       con.createQuery(deleteUsersQuery).executeUpdate();
       con.createQuery(deleteSongsQuery).executeUpdate();
+      con.createQuery(deleteTypesQuery).executeUpdate();
     }
   }
 }

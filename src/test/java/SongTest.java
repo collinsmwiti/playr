@@ -58,7 +58,7 @@ public class SongTest {
   public void all_returnsAllInstancesOfSong_true() {
     Song firstSong = new Song("Believe", "www.youtube.com", "Youtube");
     firstSong.save();
-    Song secondSong = new Song("Believe", "www.youtube.com", "Youtube");
+    Song secondSong = new Song("It", "www.soundcloud.com", "Soundcloud");
     secondSong.save();
     assertEquals(true, Song.all().get(0).equals(firstSong));
     assertEquals(true, Song.all().get(1).equals(secondSong));
