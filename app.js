@@ -52,14 +52,6 @@ $(document).ready(function () {
     });
   });
 
-  $.ajax({
-    url: 'https://api.mixcloud.com/search/?q=party+time&type=cloudcast&limit=2',
-    method:'GET',
-    success:function (response) {
-      console.log(JSON.parse(response));
-    }
-  });
-
   $(".Vimeo").submit(function (event) {
     event.preventDefault();
 
