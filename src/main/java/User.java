@@ -5,15 +5,21 @@ import java.util.List;
 
 // class user
 public class User {
+  private String userImage;
   private String userName;
   private int id;
 
   //constructor user
-  public User(String userName) {
+  public User(String userImage, String userName) {
+    this.userImage = userImage;
     this.userName = userName;
   }
 
   //get method
+  public String getUserImage() {
+    return userImage;
+  }
+
   public String getUserName() {
     return userName;
   }
@@ -29,15 +35,17 @@ public class User {
       return false;
     } else {
       User newUser = (User) otherUser;
-      return this.getUserName().equals(newUser.getUserName());
+      return this.getUserImage().equals(newUser.getUserImage()) &&
+            this.getUserName().equals(newUser.getUserName());
     }
   }
 
   //save method
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO users (userName) VALUES (:userName)";
+      String sql = "INSERT INTO users (userImage, userName) VALUES (:userImage, :userName)";
       this.id= (int) con.createQuery(sql, true)
+      .addParameter("userImage", this.userImage)
       .addParameter("userName", this.userName)
       .executeUpdate()
       .getKey();
@@ -60,6 +68,16 @@ public class User {
         .addParameter("id", id)
         .executeAndFetchFirst(User.class);
       return user;
+    }
+  }
+
+  //method to add playlists to User
+  public List<Playlist> getPlaylists() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM playlists where userId=:id";
+      return con.createQuery(sql)
+      .addParameter("id", this.id)
+      .executeAndFetch(Playlist.class);
     }
   }
 }
