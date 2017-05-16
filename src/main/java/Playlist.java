@@ -2,14 +2,11 @@
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.text.DateFormat;
+
 //clas Playlist
 public class Playlist {
   private int userId;
   private String userName;
-  private int trackId;
   private String typeName;
   private String trackName;
   private String thumbNail;
@@ -19,10 +16,9 @@ public class Playlist {
   private int id;
 
 //constructor playlist
-  public Playlist(int userId, String userName, int trackId, String typeName, String trackName, String thumbNail, String trackLink, int securityId, String host) {
+  public Playlist(int userId, String userName, String typeName, String trackName, String thumbNail, String trackLink, int securityId, String host) {
     this.userId = userId;
     this.userName = userName;
-    this.trackId = trackId;
     this.typeName = typeName;
     this.trackName = trackName;
     this.thumbNail = thumbNail;
@@ -38,10 +34,6 @@ public class Playlist {
 
   public String getUserName() {
     return userName;
-  }
-
-  public int getTrackId() {
-    return trackId;
   }
 
   public String getTypeName() {
@@ -81,7 +73,6 @@ public class Playlist {
      Playlist newPlaylist = (Playlist) otherPlaylist;
      return this.getUserId() == newPlaylist.getUserId() &&
             this.getUserName().equals(newPlaylist.getUserName()) &&
-            this.getTrackId() == newPlaylist.getTrackId() &&
             this.getTypeName().equals(newPlaylist.getTypeName()) &&
             this.getTrackName().equals(newPlaylist.getTrackName()) &&
             this.getThumbNail().equals(newPlaylist.getThumbNail()) &&
@@ -95,11 +86,10 @@ public class Playlist {
  //save method
  public void save() {
    try(Connection con = DB.sql2o.open()) {
-     String sql = "INSERT INTO playlists (userId, userName, trackId, typeName, trackName, thumbNail, trackLink, securityId, host) VALUES (:userId, :userName, :trackId, :typeName, :trackName, :thumbNail, :trackLink, :securityId, :host)";
+     String sql = "INSERT INTO playlists (userId, userName, typeName, trackName, thumbNail, trackLink, securityId, host) VALUES (:userId, :userName, :typeName, :trackName, :thumbNail, :trackLink, :securityId, :host)";
      this.id = (int) con.createQuery(sql, true)
      .addParameter("userId", this.userId)
      .addParameter("userName", this.userName)
-     .addParameter("trackId", this.trackId)
      .addParameter("typeName", this.typeName)
      .addParameter("trackName", this.trackName)
      .addParameter("thumbNail", this.thumbNail)
