@@ -51,9 +51,7 @@ public class App{
  // showing playlists already included in the database and displaying them to the user
  post("/playlists", (request, response) -> {
    Map<String, Object> model = new HashMap<String, Object>();
-   int userId = request.queryParams("userId");
    String userName = request.queryParams("userName");
-   int trackId = request.queryParams("trackId");
    String typeName = request.queryParams("typeName");
    String trackName = request.queryParams("trackName");
    String thumbNail = request.queryParams("thumbNail");
@@ -61,7 +59,7 @@ public class App{
    int securityId = request.queryParams("securityId");
    String host = request.queryParams("host");
    Timestamp dateCreated = request.queryParams("dateCreated");
-   Playlist newPlaylist = new Playlist(userId, userName, trackId, typeName, trackName, thumbNail, trackLink, securityId, host, dateCreated);
+   Playlist newPlaylist = new Playlist(getUserId(), getUserName(), getTrackId(), getTypeName(), getTrackName(), getThumbNail(), getTrackLink(), getSecurityId(), getHost(), getDateCreated());
    newPlaylist.save();
    model.put("template", "templates/playlist-success.vtl");
    return new ModelAndView(model, layout);
