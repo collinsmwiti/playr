@@ -32,13 +32,6 @@ h3{
   box-shadow: 0 9px #999;
 }
 .addplay:hover{background-color: #3e8e41}
-
-.addplay:active{
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
 .savedplay{
   margin-right: 80px;
   padding: 50px 50px;
