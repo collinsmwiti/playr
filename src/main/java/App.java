@@ -41,7 +41,7 @@ public class App {
 // route to retrieve all playlists in general
   get("/playlists", (request, response) -> {
     Map<String, Object> model = new HashMap<String, Object>();
-    model.put("playlists", Playlist.all());
+    model.put("users", User.all());
     model.put("template", "templates/playlists.vtl");
     return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
