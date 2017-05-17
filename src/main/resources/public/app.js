@@ -13,10 +13,9 @@ $(document).ready(function () {
       success: function (response) {
         $(".results").empty();
         for (var i = 0; i < response.items.length; i++) {
-          console.log(response.items[i]);
           $(".results").append(
             "<h3>"+response.items[i].snippet.title+"</h3>"
-           +'<iframe width="160" height="120" src="https://www.youtube.com/embed/'+response.items[i].id.videoId+'"></iframe>'+'<form action="/playlists/new" method="post">'+'<label for="typeName">Select Genre of this song </label>'
+           +'<iframe width="240" height="200" src="https://www.youtube.com/embed/'+response.items[i].id.videoId+'"></iframe>'+'<form action="/playlists/new" method="post">'+'<label for="typeName">Select Genre of this song </label>'
            +'<select id="typeName" name="typeName" type="text">'
            +'<option value="General">General</option>'
            +'<option value="Hip Hop">Hip Hop</option>'
@@ -45,14 +44,11 @@ $(document).ready(function () {
         $(".progressYT").show();
         $(".searchYT").hide();
         $(".FYI").show();
-        console.log("Loading");
       }
 
     }).always(function () {
       $(".progressYT").hide();
       $(".searchYT").show();
-      console.log("finished");
-
     });
 
   });
@@ -66,12 +62,12 @@ $(document).ready(function () {
       success:  function (response) {
         $(".results").empty();
 
-        // console.log(response.data);
 
         for (var i = 0; i < response.data.length; i++) {
+          //The two following lines of code are used to remove the 's' in the output of response.data[i].uri which comes as /videos/{videoId} but the input required for the iframe to return the video is /video/{videoId}
           var videoLink = response.data[i].uri;
           var newVideoLink = videoLink.replace(/s/i,'');
-          // console.log(response.data[i]);
+          //The 4 lines following this comment are used to convert the song duration returned from the API which is in seconds and return a value that is in minutes and seconds.
           var time = response.data[i].duration;
           var seconds = time%60;
           var minutes = Math.floor(time/60);
@@ -123,8 +119,6 @@ $(document).ready(function () {
 
         $(".FYI").hide();
 
-        console.log("sending");
-
       }
 
     }).always(function () {
@@ -132,8 +126,6 @@ $(document).ready(function () {
       $(".progressVM").hide();
 
       $(".searchVM").show();
-
-      console.log("Done!");
 
     });
 
