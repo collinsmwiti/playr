@@ -1,5 +1,25 @@
+h1{
+  text-align: center;
+  padding-top: 50px;
+  font-size: 100px;
+  }
+h3{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 50px;
+}
+
+.landing{
+  padding-top: 1px;
+  background-image: url("../images/1.jpg");
+  background-size: cover;
+  height: 600px;
+}
+
 .addplay{
-  padding: 120px 120px;
+  margin-left: 100px;
+  padding: 50px 50px;
   font-size: 50px;
   cursor: pointer;
   text-align: center;
@@ -20,7 +40,8 @@
 }
 
 .savedplay{
-  padding: 120px 120px;
+  margin-right: 80px;
+  padding: 50px 50px;
   font-size: 50px;
   cursor: pointer;
   text-align: center;
