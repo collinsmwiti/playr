@@ -3,6 +3,9 @@ h1{
   padding-top: 50px;
   font-size: 100px;
   }
+ul{
+  list-style: none;
+}
 h3{
   text-align: center;
   padding-top: 20px;
@@ -70,11 +73,11 @@ a:hover{
   height: 350px;
   transform: scale(1);
   border: none;
-  transition-duration: 2s;
+  transition-duration: 1s;
 }
 .users-display div:hover{
-  transform: scale(0.6);
-  transition-duration: 2s;
+  transform: scale(0.75);
+  transition-duration: 1s;
 }
 .users-display div img{
   width: 300px;
@@ -92,4 +95,8 @@ a:hover{
 .users-display div p:hover{
   color: #7B68EE;
   transition-duration: 1s;
+}
+button{
+  padding: 10px 30px 10px 30px;
+  border: none;
 }

@@ -14,7 +14,7 @@ $(document).ready(function () {
         $(".results").empty();
         for (var i = 0; i < response.items.length; i++) {
           $(".results").append(
-            "<h3>"+response.items[i].snippet.title+"</h3>"
+            "<h4>"+response.items[i].snippet.title+"</h4>"
            +'<iframe width="240" height="200" src="https://www.youtube.com/embed/'+response.items[i].id.videoId+'"></iframe>'+'<form action="/playlists/new" method="post">'+'<label for="typeName">Select Genre of this song </label>'
            +'<select id="typeName" name="typeName" type="text">'
            +'<option value="General">General</option>'
@@ -74,7 +74,7 @@ $(document).ready(function () {
           var duration = minutes + ":"+(seconds<10?'0'+seconds:seconds);
 
           $(".results").append(
-            "<h3>"+"Track name:  "+response.data[i].name+"</h3>"+"<h4> Track Duration: "+duration+"</h4>"
+            "<h4>"+"Track name:  "+response.data[i].name+"</h4>"+"<p> Track Duration: <b>"+duration+"</b></p>"
           +'<iframe src="https://player.vimeo.com'+newVideoLink+'?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0" width="160" height="120" frameborder="0" title="'+response.data[i].name+'" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
           +'<form action="/playlists/new" method="post">'+'<label for="typeName">Select Genre of this song </label>'
           +'<select id="typeName" name="typeName" type="text">'

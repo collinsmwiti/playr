@@ -55,8 +55,8 @@ public class UserTest {
     firstUser.save();
     User secondUser = new User("image", "Snoop");
     secondUser.save();
-    assertEquals(true, User.all().get(0).equals(firstUser));
-    assertEquals(true, User.all().get(1).equals(secondUser));
+    assertEquals(true, User.all().get(1).equals(firstUser));
+    assertEquals(true, User.all().get(0).equals(secondUser));
   }
 
   //test to assign id to a user
@@ -89,5 +89,15 @@ public class UserTest {
     secondPlaylist.save();
     Playlist[] playlists =  new Playlist[] {firstPlaylist, secondPlaylist};
     assertTrue(testUser.getPlaylists().containsAll(Arrays.asList(playlists)));
+  }
+
+  // deletes playlists
+  @Test
+  public void delete_deletesPlaylist_true() {
+    User testUser = new User("image", "Dre");
+    testUser.save();
+    int testUserId = testUser.getId();
+    User.delete(testUserId);
+    assertEquals(null, User.find(testUserId));
   }
 }

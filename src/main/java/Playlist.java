@@ -71,14 +71,7 @@ public class Playlist {
      return false;
    } else {
      Playlist newPlaylist = (Playlist) otherPlaylist;
-     return this.getUserId() == newPlaylist.getUserId() &&
-            this.getUserImage().equals(newPlaylist.getUserImage()) &&
-            this.getUserName().equals(newPlaylist.getUserName()) &&
-            this.getTypeName().equals(newPlaylist.getTypeName()) &&
-            this.getTrackName().equals(newPlaylist.getTrackName()) &&
-            this.getThumbNail().equals(newPlaylist.getThumbNail()) &&
-            this.getTrackLink().equals(newPlaylist.getTrackLink()) &&
-            this.getHost().equals(newPlaylist.getHost());
+     return this.getUserId() == newPlaylist.getUserId() &&this.getUserImage().equals(newPlaylist.getUserImage()) &&this.getUserName().equals(newPlaylist.getUserName()) &&this.getTypeName().equals(newPlaylist.getTypeName()) &&this.getTrackName().equals(newPlaylist.getTrackName()) &&this.getThumbNail().equals(newPlaylist.getThumbNail()) &&this.getTrackLink().equals(newPlaylist.getTrackLink()) &&this.getHost().equals(newPlaylist.getHost())&&this.getId()==newPlaylist.getId();
 
    }
  }
@@ -120,11 +113,20 @@ public class Playlist {
    }
  }
 
- public void delete() {
+ public static void delete(int id) {
+   try(Connection con = DB.sql2o.open()) {
+     String sql = "DELETE FROM playlists WHERE userId = :id;";
+     con.createQuery(sql)
+     .addParameter("id", id)
+     .executeUpdate();
+   }
+ }
+
+ public static void deleteTrack(int id){
    try(Connection con = DB.sql2o.open()) {
      String sql = "DELETE FROM playlists WHERE id = :id;";
      con.createQuery(sql)
-     .addParameter("id", id)
+     .addParameter("id",id)
      .executeUpdate();
    }
  }

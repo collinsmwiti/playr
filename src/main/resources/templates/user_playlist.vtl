@@ -1,0 +1,42 @@
+<h1 style="text-align: center">View your playlist</h1>
+
+<div class="alex">
+  <div class="container">
+    <div class="row">
+      <div>
+        <img src"$user.getUserImage()" alt="" height="300px" width="300px">
+      </div>
+      <div class="span4">
+        <blockquote>
+          <div class="ben">
+            <h2>$user.getUserName()</h2>
+            <div class="kinuthia">
+              <p>Playlists</p>
+            </div>
+          </div>
+          <a href="/users/$user.getId()/playlists/new">
+            <button type="button" name="button" class="btn btn-danger"> Add <i class="glyphicon glyphicon-plus-sign"></i></button>
+          </a>
+          <a href="/users/$user.getId()/playlists/delete">
+            <button type="button" name="button" class="btn btn-danger"> Delete <i class="glyphicon glyphicon-trash"></i></button>
+          </a>
+          <ul>
+            #foreach ($track in $user.getPlaylists())
+            <li>
+              <p>Track Category: $track.getTypeName()</p><br>
+              <p>Track Name: $track.getTrackName()</p><br>
+              #if($track.getHost()=="YouTube")
+              <iframe width="240" height="200" src="https://www.youtube.com/embed/$track.getTrackLink()"></iframe>
+              #else
+              <iframe src="https://player.vimeo.com$track.getTrackLink()?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0" width="160" height="120" frameborder="0" title="$track.getTrackName()" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              <form action="/users/$user.getId()/playlists/$track.getId()/delete" method="post">
+                <button type="submit" name="button"><i class="glyphicon glyphicon-remove-circle"></i></button>
+              </form>
+              #end
+            </li>
+            #end
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>

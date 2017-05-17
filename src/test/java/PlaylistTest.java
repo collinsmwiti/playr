@@ -130,7 +130,7 @@ public class PlaylistTest {
   public void save_savesUserIdIntoDB_true() {
     User testUser = new User("image", "Dre");
     testUser.save();
-    Playlist testPlaylist = new Playlist(1, "image", "John", "Worship", "Imela", "Picture", "www.youtube.com", "Youtube");
+    Playlist testPlaylist = new Playlist(testUser.getId(), testUser.getUserImage(), testUser.getUserName(), "Worship", "Imela", "Picture", "www.youtube.com", "Youtube");
     testPlaylist.save();
     Playlist savedPlaylist = Playlist.find(testPlaylist.getId());
     assertTrue(savedPlaylist.getUserId() > 0);
@@ -139,11 +139,21 @@ public class PlaylistTest {
 
 //deleting the playlists
   @Test
-  public void delete_deletesPlaylist_true() {
+  public void delete_deletesEntirePlaylist_true() {
   Playlist testPlaylist = new Playlist(1, "image", "John", "Worship", "Imela", "Picture", "www.youtube.com", "Youtube");
     testPlaylist.save();
     int testPlaylistId = testPlaylist.getId();
-    testPlaylist.delete();
+    Playlist.delete(1);
     assertEquals(null, Playlist.find(testPlaylistId));
+  }
+
+  //deleting single track
+  @Test
+  public void deleteTrack_deletesSinglePlaylistEntry_true(){
+    Playlist testPlaylist = new Playlist(1, "image", "John", "Worship", "Imela", "Picture", "www.youtube.com", "Youtube");
+    testPlaylist.save();
+    int testPlaylistId = testPlaylist.getId();
+    Playlist.deleteTrack(testPlaylistId);
+    assertEquals(null,Playlist.find(testPlaylistId));
   }
 }

@@ -54,7 +54,7 @@ public class User {
 
   //method used to list data within the database
   public static List<User> all() {
-    String sql = "SELECT * FROM users";
+    String sql = "SELECT * FROM users ORDER BY id DESC";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(User.class);
     }
@@ -78,6 +78,16 @@ public class User {
       return con.createQuery(sql)
       .addParameter("id", this.id)
       .executeAndFetch(Playlist.class);
+    }
+  }
+
+// deletes user instance
+  public static void delete(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM users WHERE id = :id;";
+      con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
     }
   }
 }
