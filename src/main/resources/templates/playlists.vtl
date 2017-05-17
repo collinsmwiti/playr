@@ -1,0 +1,38 @@
+<div class="container users-display">
+<h2 class="page-header">
+  <i class="glyphicon glyphicon-floppy-disk"></i>
+  Saved Playlists
+</h2>
+  #foreach($user in $users)
+  <div class="col-md-4 col-sm-6">
+    <img src="$user.getUserImage()" alt="user image" width="300px" height="300px">
+    <a href="/users/user.getId()/playlists"><p>$user.getUserName()</p></a>
+  </div>
+  #end
+  <div class="col-md-4 col-sm-6">
+    <img src="https://cdnb.artstation.com/p/assets/images/images/005/767/383/large/c-home-x2.jpg?1493642592" alt="">
+    <p>
+      <a href="google.com">Kenneth</a>
+  </p>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <img src="https://cdna.artstation.com/p/assets/images/images/005/141/176/large/roman-zawadzki-rising-king-2400.jpg?1488795336" alt="">
+    <p>Kenneth</p>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <img src="https://cdnb.artstation.com/p/assets/images/images/004/713/831/large/weta-workshop-design-studio-485exo-organo9-fin-gb.jpg?1485731863" alt="">
+    <p>Kenneth</p>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <img src="https://cdnb.artstation.com/p/assets/images/images/005/949/909/large/wu-kai-huli1.jpg?1494934133" alt="">
+    <p>Kenneth</p>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <img src="https://cdna.artstation.com/p/assets/images/images/005/955/006/large/ben-armstrong-terracotta-tiles-01.jpg?1494965737" alt="">
+    <p>Kenneth</p>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <img src="https://avatars0.githubusercontent.com/u/25569504?v=3&s=460" alt="">
+    <p>Kenneth</p>
+  </div>
+</div>
