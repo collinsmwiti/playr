@@ -6,30 +6,34 @@ import java.util.List;
 //clas Playlist
 public class Playlist {
   private int userId;
+  private String userImage;
   private String userName;
   private String typeName;
   private String trackName;
   private String thumbNail;
   private String trackLink;
-  private int securityId;
   private String host;
   private int id;
 
 //constructor playlist
-  public Playlist(int userId, String userName, String typeName, String trackName, String thumbNail, String trackLink, int securityId, String host) {
+  public Playlist(int userId, String userImage, String userName, String typeName, String trackName, String thumbNail, String trackLink, String host) {
     this.userId = userId;
+    this.userImage = userImage;
     this.userName = userName;
     this.typeName = typeName;
     this.trackName = trackName;
     this.thumbNail = thumbNail;
     this.trackLink = trackLink;
-    this.securityId = securityId;
     this.host = host;
   }
 
   //get methods
   public int getUserId() {
     return userId;
+  }
+
+  public String getUserImage() {
+    return userImage;
   }
 
   public String getUserName() {
@@ -52,10 +56,6 @@ public class Playlist {
     return trackLink;
   }
 
-  public int getSecurityId() {
-    return securityId;
-  }
-
   public String getHost() {
     return host;
   }
@@ -72,12 +72,12 @@ public class Playlist {
    } else {
      Playlist newPlaylist = (Playlist) otherPlaylist;
      return this.getUserId() == newPlaylist.getUserId() &&
+            this.getUserImage().equals(newPlaylist.getUserImage()) &&
             this.getUserName().equals(newPlaylist.getUserName()) &&
             this.getTypeName().equals(newPlaylist.getTypeName()) &&
             this.getTrackName().equals(newPlaylist.getTrackName()) &&
             this.getThumbNail().equals(newPlaylist.getThumbNail()) &&
             this.getTrackLink().equals(newPlaylist.getTrackLink()) &&
-            this.getSecurityId() == newPlaylist.getSecurityId() &&
             this.getHost().equals(newPlaylist.getHost());
 
    }
@@ -86,15 +86,15 @@ public class Playlist {
  //save method
  public void save() {
    try(Connection con = DB.sql2o.open()) {
-     String sql = "INSERT INTO playlists (userId, userName, typeName, trackName, thumbNail, trackLink, securityId, host) VALUES (:userId, :userName, :typeName, :trackName, :thumbNail, :trackLink, :securityId, :host)";
+     String sql = "INSERT INTO playlists (userId, userImage, userName, typeName, trackName, thumbNail, trackLink, host) VALUES (:userId, :userImage, :userName, :typeName, :trackName, :thumbNail, :trackLink, :host)";
      this.id = (int) con.createQuery(sql, true)
      .addParameter("userId", this.userId)
+     .addParameter("userImage", this.userImage)
      .addParameter("userName", this.userName)
      .addParameter("typeName", this.typeName)
      .addParameter("trackName", this.trackName)
      .addParameter("thumbNail", this.thumbNail)
      .addParameter("trackLink", this.trackLink)
-     .addParameter("securityId", this.securityId)
      .addParameter("host", this.host)
      .executeUpdate()
      .getKey();

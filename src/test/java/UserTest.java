@@ -83,9 +83,9 @@ public class UserTest {
   public void getPlaylists_retrievesAllPlaylistsFromDatabase_playlistsList() {
     User testUser = new User("image", "Dre");
     testUser.save();
-    Playlist firstPlaylist = new Playlist(testUser.getId(), testUser.getUserName(), "Worship", "Imela", "Picture", "www.youtube.com", 1, "Youtube");
+    Playlist firstPlaylist = new Playlist(testUser.getId(), testUser.getUserImage(), testUser.getUserName(), "Worship", "Imela", "Picture", "www.youtube.com", "Youtube");
     firstPlaylist.save();
-    Playlist secondPlaylist = new Playlist(testUser.getId(), testUser.getUserName(), "Riddim", "Black", "Pics", "www.vimeo.com", 2, "Vimeo");
+    Playlist secondPlaylist = new Playlist(testUser.getId(), testUser.getUserImage(), testUser.getUserName(), "Riddim", "Black", "Pics", "www.vimeo.com", "Vimeo");
     secondPlaylist.save();
     Playlist[] playlists =  new Playlist[] {firstPlaylist, secondPlaylist};
     assertTrue(testUser.getPlaylists().containsAll(Arrays.asList(playlists)));

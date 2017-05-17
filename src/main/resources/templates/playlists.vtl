@@ -1,9 +1,0 @@
-<h1>All playlists</h1>
-<div id="playlists">
-  #foreach ($playlist in $playlists)
-    <div class="playlisting">
-    <a href="/playlists/$playlist.getId()">$playlist.getUserName(),playlist.getDateCreated()</a>
-    </div>
-  #end
-</div>
-<button class= "btn btn success"><a href="/playlists/new">Add New Playlists</a></button>
