@@ -1,47 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <title>Document</title>
-</head>
-<body>
-  <div class="container">
+<div class="container">
+
     <div class="FYI alert alert-warning">
+
       Some YouTube content cannot be viewed from here due to Copyright laws as this is a 3rd party application
+
     </div>
+
     <div class="col-md-6">
+
       <form class="YouTube">
+
         <div class="form-group">
+
           <label for="YouTubeVideo">Search YouTube here</label>
+
           <input class="form-control YT" type="text" name="" value="">
+
         </div>
+
         <button type="submit" name="button">
+
           <span class="searchYT glyphicon glyphicon-search"></span>
+
           <span class="progressYT">Loading ...</span>
+
         </button>
+
       </form>
+
     </div>
+
     <div class="col-md-6">
+
       <form class="Vimeo">
+
         <div class="form-group">
+
           <label for="VimeoTrack">Search Vimeo Here</label>
+
           <input class="form-control VM" type="text" name="" value="">
+
         </div>
+
         <button type="submit" name="button">
+
           <span class="searchVM glyphicon glyphicon-search"></span>
+
           <span class="progressVM">Loading ...</span>
+
         </button>
+
       </form>
+
     </div>
+
     <div class="container">
+
       <div class="results">
+
       </div>
+
     </div>
+
   </div>
-<script src="app.js" charset="utf-8"></script>
-</body>
-</html>
