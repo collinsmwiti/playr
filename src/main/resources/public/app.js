@@ -31,7 +31,7 @@ $(document).ready(function () {
            +'<input id="trackLink" name="trackLink" type="hidden" value="'+response.items[i].id.videoId+'">'
            +'<input id="host" name="host" type="hidden" value="YouTube">'
            +'<button type="submit" name="button">'
-           +'<i class="glyphicon glyphicon-plus"></i>'
+           +'<i class="fa fa-plus-square-o"></i>'
            +'</button>'
            +'</form>'
 
