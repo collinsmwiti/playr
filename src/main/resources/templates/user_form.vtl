@@ -2,7 +2,19 @@
   <h2 class="page-header">User registration <i class="fa fa-user-circle"></i></h2>
   <form action="/users/new" method="post">
     <div class="form-group row">
-      <label for="userImage" class="col-sm-2 col-form-label">Profile pic (Image Link)</label>
+      <label for="userImage" class="col-sm-2 col-form-label">Select an image to identify you</label>
+      <select id="userImage" name="userImage">
+        <option value="https://cdn.authoritynutrition.com/wp-content/uploads/2013/07/chicken-and-egg-smaller.jpg">Egg</option>
+        <option value="https://www.atomix.com.au/media/2015/06/atomix_user2.png">User icon</option>
+        <option value="http://icons.iconarchive.com/icons/iconsmind/outline/128/Funny-Bicycle-icon.png">Unicycle</option>
+        <option value="http://icons.iconarchive.com/icons/gordon-irving/simpsons/128/garage-band-homer-icon.png">Homer Simpson</option>
+        <option value="http://icons.iconarchive.com/icons/iconsmind/outline/128/Band-Aid-icon.png">Bandage</option>
+        <option value="http://icons.iconarchive.com/icons/dtafalonso/ios7-desktop/128/Garage-Band-icon.png">Guitar</option>
+        <option value="http://icons.iconarchive.com/icons/martin-berube/food/128/corn-icon.png">Corn</option>
+        <option value="http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Cheese-icon.png">Cheese</option>
+        <option value="http://icons.iconarchive.com/icons/artdesigner/gentle-romantic/128/rose-icon.png">Flower</option>
+        <option value="http://thumb1.shutterstock.com/thumb_large/339610/508471288/stock-vector-custom-retro-typeface-quasimodo-vintage-gold-alphabet-font-set-with-black-flowers-508471288.jpg">Quasimodo</option>
+      </select>
         <input type="userImage" class="form-control" id="userImage" placeholder="Profile pic" name="userImage" required>
     </div>
     <div class="form-group row">
