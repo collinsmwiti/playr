@@ -12,6 +12,18 @@ h3{
   padding-bottom: 20px;
   font-size: 50px;
 }
+footer{
+  background-color: #7B68EE;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+.content{
+  height: 86vh;
+  overflow: auto;
+}
 .home{
   padding: 10px 30px 10px 30px;
   background-color: #7B68EE;
