@@ -1,42 +1,40 @@
-<h1 style="text-align: center">View your playlist</h1>
-
-<div class="alex">
-  <div class="container">
-    <div class="row">
-      <div>
-        <img src"$user.getUserImage()" alt="" height="300px" width="300px">
-      </div>
-      <div class="span4">
-        <blockquote>
-          <div class="ben">
-            <h2>$user.getUserName()</h2>
-            <div class="kinuthia">
-              <p>Playlists</p>
-            </div>
-          </div>
-          <a href="/users/$user.getId()/playlists/new">
-            <button type="button" name="button" class="btn btn-danger"> Add <i class="glyphicon glyphicon-plus-sign"></i></button>
-          </a>
-          <a href="/users/$user.getId()/playlists/delete">
-            <button type="button" name="button" class="btn btn-danger"> Delete <i class="glyphicon glyphicon-trash"></i></button>
-          </a>
-          <ul>
-            #foreach ($track in $user.getPlaylists())
-            <li>
-              <p>Track Category: $track.getTypeName()</p><br>
-              <p>Track Name: $track.getTrackName()</p><br>
-              #if($track.getHost()=="YouTube")
-              <iframe width="240" height="200" src="https://www.youtube.com/embed/$track.getTrackLink()"></iframe>
-              #else
-              <iframe src="https://player.vimeo.com$track.getTrackLink()?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0" width="160" height="120" frameborder="0" title="$track.getTrackName()" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-              <form action="/users/$user.getId()/playlists/$track.getId()/delete" method="post">
-                <button type="submit" name="button"><i class="glyphicon glyphicon-remove-circle"></i></button>
-              </form>
+<div class="user-playlist">
+  <h2>$user.getUserName()'s playlist</h2>
+    <div class="container">
+      <div class="row">
+            <a href="/users/$user.getId()/playlists/new">
+              <button type="button" name="button"> Add A Track <i class="fa fa-plus-square-o"></i></button>
+            </a>
+            <div>
+              #if($user.getPlaylists().length>0)
+              #foreach ($track in $user.getPlaylists())
+              <div class="col-md-4 col-sm-6 track">
+                <h4>Track Category </h4><p>$track.getTypeName()</p>
+                <h4>Track Name </h4><p>$track.getTrackName()</p>
+                #if($track.getHost()=="YouTube")
+                <div class="youtube-logo"><i class="fa fa-youtube" aria-hidden="true"></i></div>
+                <iframe width="240" height="180" src="https://www.youtube.com/embed/$track.getTrackLink()"></iframe>
+                <form action="/users/$user.getId()/playlists/$track.getId()/delete" method="post">
+                  <button type="submit" name="button"><i class="glyphicon glyphicon-remove-circle"></i></button>
+                </form>
+                #else
+                <div class="vimeo-logo"><i class="fa fa-vimeo" aria-hidden="true"></i></div>
+                <iframe src="https://player.vimeo.com$track.getTrackLink()?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0" width="240" height="180" frameborder="0" title="$track.getTrackName()" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <form action="/users/$user.getId()/playlists/$track.getId()/delete" method="post">
+                  <button type="submit" name="button"><i class="glyphicon glyphicon-remove-circle"></i></button>
+                </form>
+                #end
+              </div>
               #end
-            </li>
-            #end
-          </ul>
+              #else
+              <h3 class="alert alert-info">No Songs Are In This Playlist <i class="fa fa-frown-o"></i></h3>
+              #end
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <a href="/users/$user.getId()/playlists/delete">
+                <button type="button" name="button"> Delete the playlist<i class="glyphicon glyphicon-trash"></i></button>
+              </a>
+            </div>
       </div>
     </div>
-  </div>
 </div>

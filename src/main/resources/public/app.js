@@ -15,7 +15,7 @@ $(document).ready(function () {
         for (var i = 0; i < response.items.length; i++) {
           $(".results").append(
             "<h4>"+response.items[i].snippet.title+"</h4>"
-           +'<iframe width="240" height="200" src="https://www.youtube.com/embed/'+response.items[i].id.videoId+'"></iframe>'+'<form action="/playlists/new" method="post">'+'<label for="typeName">Select Genre of this song </label>'
+           +'<iframe width="240" height="200" src="https://www.youtube.com/embed/'+response.items[i].id.videoId+'"></iframe>'+'<form action="/playlists/new" method="post">'+'<label for="typeName">Select Genre of this song </label> '
            +'<select id="typeName" name="typeName" type="text">'
            +'<option value="General">General</option>'
            +'<option value="Hip Hop">Hip Hop</option>'
@@ -25,12 +25,12 @@ $(document).ready(function () {
            +'<option value="Gospel">Gospel</option>'
            +'<option value="Country">Country</option>'
            +'<option value="Other">Other</option>'
-           +'</select>'
+           +'</select> <br>'
            +'<input id="trackName" name="trackName" type="hidden" value="'+response.items[i].snippet.title+'">'
            +'<input id="thumbNail" name="thumbNail" type="hidden" value="'+response.items[i].snippet.thumbnails.default.url+'">'
            +'<input id="trackLink" name="trackLink" type="hidden" value="'+response.items[i].id.videoId+'">'
            +'<input id="host" name="host" type="hidden" value="YouTube">'
-           +'<button type="submit" class="btn btn-success" name="button">'
+           +'<button type="submit" name="button">'
            +'<i class="glyphicon glyphicon-plus"></i>'
            +'</button>'
            +'</form>'
@@ -87,7 +87,7 @@ $(document).ready(function () {
           +'<option value="Country">Country</option>'
           +'<option value="Other">Other</option>'
 
-          +'</select>'
+          +'</select> '
 
           +'<input id="trackName" name="trackName" type="hidden" value="'+response.data[i].name+'">'
 
@@ -97,9 +97,9 @@ $(document).ready(function () {
 
           +'<input id="host" name="host" type="hidden" value="Vimeo">'
 
-          +'<button type="submit" class="btn btn-success" name="button">'
+          +'<button type="submit" name="button">'
 
-          +'<i class="glyphicon glyphicon-plus"></i>'
+          +'<i class="fa fa-plus-square-o"></i>'
 
           +'</button>'
 
