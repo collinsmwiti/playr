@@ -6,7 +6,7 @@ Version 0.0.1: May 18, 2017.
 ## Description
 Team Project. Playr app enables users to CREATE or LISTEN to saved playlists. Once logged into the app users can create playlists of their favorite music genre, Users have the option of searching for their music from Youtube and Vimeo sites that have been intergrated to Playr.Add selected videos to create a new playlist and Save for future refernces. OR browse saved playlists that other users have created. Play the music and view videos on the iframe intergrated into the Playr app. Happy listening. :smile:
 
-##Authors
+## Authors
 * Kenneth Gitere.
 * Collins Mutuma.
 * Alex Kinuthia.
