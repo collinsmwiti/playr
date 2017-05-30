@@ -37,9 +37,9 @@ Team Project. Playr app enables users to CREATE or LISTEN to saved playlists. On
 
 ## User Stories:
 
-* As a user I want login and create my plalist.
+* As a user I want login and create my playlist.
 * As a user I want save my playlist
-* As a user I want to play videos as i add new music to playlist.
+* As a user I want to play videos as I add new music to playlist.
 * As a user I want to search my music from youtube or vimeo.
 * As a user I want see all my saved playlists.
 * As a user I save my playlist in different genres.
