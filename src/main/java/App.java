@@ -107,6 +107,7 @@ public class App {
          model.put("template", "templates/playlist_new_success.vtl");
          return new ModelAndView(model, layout);
      }, new VelocityTemplateEngine());
+     
 
 // deleting old playlists
     post("/users/:userId/playlists/delete", (request, response) -> {
